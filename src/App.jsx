@@ -12,16 +12,15 @@ export const AppContext = React.createContext();
 
 function App() {
   const [posts, setPosts] = useState([]);
+
+  const getPosts = async () => {
+    const { data } = await axios
+    .get(url);
+    setPosts(data);
+  }
+
   useEffect(() => {
-    axios
-      .get(url)
-      .then((response) => {
-        const { data } = response;
-        setPosts(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    getPosts();
   }, []); 
 
 
