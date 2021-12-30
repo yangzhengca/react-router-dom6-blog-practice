@@ -4,7 +4,7 @@ import { AppContext } from "../../../App";
 
 function Posts() {
   const appCtx = useContext(AppContext);
-  console.log(appCtx);
+  // console.log(appCtx);
   return (
     <div className="container">
       <div className="row">
