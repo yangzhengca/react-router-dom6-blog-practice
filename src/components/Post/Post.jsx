@@ -1,22 +1,21 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
-function Post() {
+function Post({ post }) {
+  const navigate = useNavigate()
   return (
-    <div className="col-md-6 py=2">
+    <div className="col-md-4 py={5}" key={post.id}>
       <div className="card">
         <div className="card-body">
-          <h5 className="card-title">Card title</h5>
+          <h5 className="card-title">{post.title}</h5>
           <p className="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            {post.body.slice(0, 80)}...
           </p>
-          <Link to="/posts/:id" className="card-link">
-            Card link
-          </Link>
-          <Link to="/posts/:id" className="card-link">
-            Another link
-          </Link>
+          {/* <Link to={`/posts/${post.id}`} className="card-link">
+            Details
+          </Link> */}
+          <button className="btn btn-primary" onClick={()=>navigate(`/posts/${post.id}`,{post:post})} >Details</button>
+          
         </div>
       </div>
     </div>

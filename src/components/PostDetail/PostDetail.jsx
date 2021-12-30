@@ -1,9 +1,10 @@
 import React from 'react'
 
-function PostDetail() {
+function PostDetail({post}) {
+    console.log(post)
     return (
         <div>
-            Post details
+            
         </div>
     )
 }
