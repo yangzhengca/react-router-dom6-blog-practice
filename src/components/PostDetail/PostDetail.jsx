@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { AppContext } from "../../App";
 
 function PostDetail() {
   const appCtx = useContext(AppContext);
   const { id } = useParams();
+  const navigate = useNavigate()
 
   return (
     <div className="container" >
@@ -14,6 +15,7 @@ function PostDetail() {
           <p>{appCtx.filter((post) => post.id == id)[0].body}</p>
           <p>Author ID: {appCtx.filter((post) => post.id == id)[0].userId}</p>
           <p>id: {id}</p>
+          <button className="btn btn-primary" onClick={()=>navigate(-1)}>Go back</button>
         </>
       )}
     </div>
